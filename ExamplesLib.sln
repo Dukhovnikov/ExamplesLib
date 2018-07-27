@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamplesLib", "ExamplesLib\ExamplesLib.csproj", "{3B563505-E75E-4527-9387-BE2BF1D04B8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonViewerConsoleApp", "JsonViewerConsoleApp\JsonViewerConsoleApp.csproj", "{8327E9AF-22CD-49E8-9479-CB1807038EFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMqReceiverConsoleApp", "RabbitMqReceiverConsoleApp\RabbitMqReceiverConsoleApp.csproj", "{BEE5FA3D-86CC-4D70-A000-33F40DBFBE72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvvm-wpf-example", "mvvm-wpf-example\mvvm-wpf-example.csproj", "{FF79E0C9-8B66-4751-AD72-E98C74851D82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vending-machine-mvvm-wpf", "vending-machine-mvvm-wpf\vending-machine-mvvm-wpf.csproj", "{981A4E2A-3FFA-446D-9288-DCF38D567BD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B563505-E75E-4527-9387-BE2BF1D04B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B563505-E75E-4527-9387-BE2BF1D04B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B563505-E75E-4527-9387-BE2BF1D04B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B563505-E75E-4527-9387-BE2BF1D04B8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8327E9AF-22CD-49E8-9479-CB1807038EFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8327E9AF-22CD-49E8-9479-CB1807038EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8327E9AF-22CD-49E8-9479-CB1807038EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8327E9AF-22CD-49E8-9479-CB1807038EFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEE5FA3D-86CC-4D70-A000-33F40DBFBE72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE5FA3D-86CC-4D70-A000-33F40DBFBE72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE5FA3D-86CC-4D70-A000-33F40DBFBE72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE5FA3D-86CC-4D70-A000-33F40DBFBE72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF79E0C9-8B66-4751-AD72-E98C74851D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF79E0C9-8B66-4751-AD72-E98C74851D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF79E0C9-8B66-4751-AD72-E98C74851D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF79E0C9-8B66-4751-AD72-E98C74851D82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{981A4E2A-3FFA-446D-9288-DCF38D567BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{981A4E2A-3FFA-446D-9288-DCF38D567BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{981A4E2A-3FFA-446D-9288-DCF38D567BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{981A4E2A-3FFA-446D-9288-DCF38D567BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4FE970F4-56AB-4472-96C1-C7A00B179036}
+	EndGlobalSection
+EndGlobal
