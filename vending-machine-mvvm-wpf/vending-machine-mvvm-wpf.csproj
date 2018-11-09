@@ -70,6 +70,7 @@
       <DependentUpon>AutomatView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\Banknote.cs" />
+    <Compile Include="Data\MoneyStack.cs" />
     <Compile Include="MainViewMV.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="UserView.xaml.cs">

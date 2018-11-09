@@ -1,0 +1,13 @@
+﻿@model JsonConverter.WebApp.Models.JsonFormatterModel
+
+<div>
+    <hr />
+    <p>
+        @Html.Label("Please, input json string")
+    </p>
+    @Html.TextBoxFor(m => m.UnformattedString)
+</div>
+
+<div>
+    @Html.Action("sssd")
+</div>

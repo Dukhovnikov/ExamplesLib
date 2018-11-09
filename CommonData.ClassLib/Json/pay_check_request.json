@@ -1,0 +1,21 @@
+﻿{
+  "check": {
+    "from": {
+      "provider": "PUSH_PRV_ID",
+      "account": "from_account",
+      "amount": "1.25",
+      "currency": 643
+    },
+    "to": {
+      "provider": "TO_PRV_ID",
+      "account": "to_account",
+      "amount": "1.25",
+      "currency": 643
+    }
+  },
+  "client": {
+    "wal_id": "WL-9999323",
+    "phone": "79134457768"
+  }
+}
+

@@ -1,0 +1,14 @@
+﻿{
+  "result": {
+    "code": 0
+  },
+  "pay_in": {
+    "id": "100129",
+    "uid": "uid123",
+    "ref_id": "ref123",
+    "date": "2015-10-16T12:10:40.792Z",
+    "status": "waiting",
+    "error_code": 0
+  },
+  "redirect_url": "http://some_url?params"
+}

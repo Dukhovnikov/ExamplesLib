@@ -12,12 +12,5 @@ namespace mvvm_wpf_example
         {
             InitializeComponent();
         }
-
-        void IComponentConnector.Connect(int connectionId, object target)
-        {
-            this._contentLoaded = true;
-        }
-
-        private bool _contentLoaded;
     }
 }

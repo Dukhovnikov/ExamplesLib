@@ -19,7 +19,7 @@ namespace RabbitMqReceiverConsoleApp
                 if (queue.MessagesReady > 0)
                 {
                     var messagesPack = management.GetMessagesFromQueueAsync(queue,
-                        new ExtendedGetMessagesCriteria(maxMessagesPerJobCount, false, "ack_requeue_true")).Result;
+                        new ExtendedGetMessagesCriteria(maxMessagesPerJobCount, true, "ack_requeue_false")).Result;
 
                     return messagesPack.Select(message =>
                         JsonConvert.DeserializeObject<DateAndShopTransactionIds>(message.Payload));
@@ -29,11 +29,13 @@ namespace RabbitMqReceiverConsoleApp
             return null;
         }
     }
-    
+
+    [Serializable]
     public class DateAndShopTransactionIds
     {
-        public DateTime DateTime { get; set; }
+        public DateTime Date { get; set; }
         public string[] ShopTransactionIds { get; set; }
+        public object DateTime { get; set; }
     }
     
     public class ExtendedGetMessagesCriteria : GetMessagesCriteria

@@ -1,0 +1,18 @@
+﻿{
+  "result": {
+    "code": "0",
+    "message": "Ok"
+  },
+  "client": {
+    "wal_id": "WL-9999323",
+    "phone": "79134457768"
+  },
+  "check_result": {
+    "uid": "82ce5162-e40f-4da3-af28-39eef4e4db60",
+    "limit": {
+      "min": "5",
+      "max": "50000",
+      "currency": "643"
+    }
+  }
+}

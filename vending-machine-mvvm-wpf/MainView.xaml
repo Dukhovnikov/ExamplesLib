@@ -19,7 +19,7 @@
         </DataTemplate>
         
         <!-- Шаблон данных для денег в кошельке/деньгохранилище -->
-        <DataTemplate DataType="{x:Type local:MoneyMV}">
+        <DataTemplate DataType="{x:Type local:MoneyVM}">
             <StackPanel Orientation="Horizontal">
                 <Button Visibility="{Binding IsInsertVisible}" Command="{Binding InsertCommand}" Margin="5">+</Button>
                 <Label Content="{Binding Name}"/>

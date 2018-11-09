@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ExamplesLib.EnumParseTests;
+using ExamplesLib.WebRequest.Tests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,23 +12,33 @@ namespace ExamplesLib
     {
         static void Main(string[] args)
         {
-            var date = DateTime.Now;
+            WebRequestSender.SimpleSendWithUriBuilder();
+            //WebRequestSender.SimpleSend();
 
-            //Console.WriteLine($"Current date: {date}");
-            //Console.WriteLine($"Min date: {date.Date}");
-            //Console.WriteLine($"Max date {date.AddDays(1).Date}");
-            //Console.WriteLine(DateTime.Now.ToString("o"));
-            //Console.WriteLine(DateTime.Now.ToString());
-
-/*            DateAndStringsService.GroupDateAndStringListQithLinqWithRepetitions();
-            Console.ReadKey();*/
-            Console.WriteLine(DateTime.Now);
-            Console.WriteLine(DateTime.Now.Date);
-            Console.WriteLine(DateTime.Now.Date.Date);
-            Console.WriteLine(DateTime.Now.Date.Date.Date);
-
+            Console.ReadKey();
         }
 
+        private static void ConsoleEnumTesterRunTests()
+        {
+            ConsoleEnumTester.TestECommandShouldCMD_String1();
+            ConsoleEnumTester.TestECommandShouldCMD_status();
+        }
+
+        private static void ProcessTestClass(TestClass test)
+        {
+            if (string.IsNullOrEmpty(test?.Value))
+            {
+                Console.WriteLine("Значение test.Value равно null");
+                return;
+            }
+
+            Console.WriteLine("Тест завершен удачно!");
+        }
+
+        public class TestClass
+        {
+            public string Value { get; set; }
+        }
 
         static void RunToWriteStrinsExample()
         {

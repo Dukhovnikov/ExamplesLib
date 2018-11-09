@@ -15,7 +15,11 @@ namespace mvvm_wpf_example.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public DateShopTransactionIds DateShopTransactionIds { get; set; }
+        public DateShopTransactionIds DateShopTransactionIds => new DateShopTransactionIds() { Date = Date, ShopTransactionIds = Numbers.Split('\n') };
+
+        public DateTime Date { get; set; }
+
+        public string Numbers { get; set; }
 
         public ICommand SendCommand { get; set; }
 
@@ -23,10 +27,10 @@ namespace mvvm_wpf_example.ViewModel
 
         public RabbitMqRequestViewModel()
         {
-            SendCommand = new DelegateCommand(() => Send());
+            SendCommand = new DelegateCommand(() => Send(DateShopTransactionIds));
         }
 
-        private void Send()
+        private void Send(DateShopTransactionIds dateShopTransactionIds)
         {
             var log = new StringBuilder();
             log.Append("Статус: ");
@@ -34,8 +38,8 @@ namespace mvvm_wpf_example.ViewModel
             try
             {
                 var delayedTransactionsService = new DelayedTransactionsService();
-                delayedTransactionsService.SetConnectionStringAndQueueName("", "");
-                delayedTransactionsService.SendToRabbitMqAsync(DateShopTransactionIds);
+                delayedTransactionsService.SetConnectionStringAndQueueName("host=localhost", "testqueue");
+                delayedTransactionsService.SendToRabbitMqAsync(dateShopTransactionIds);
 
                 log.Append($"Успешно выполнено в {DateTime.Now.ToLongTimeString()}");
             }

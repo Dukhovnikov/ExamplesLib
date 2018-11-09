@@ -13,15 +13,17 @@ namespace RabbitMqReceiverConsoleApp
             {
                 foreach (var dateAndShopTransactionIds in queue)
                 {
-                    Console.WriteLine($"Date: {dateAndShopTransactionIds.DateTime.Date}");
+                    Console.WriteLine($"Date: {dateAndShopTransactionIds.DateTime}");
 
-                    foreach (var shopTransactionId in dateAndShopTransactionIds.ShopTransactionIds)
+                    foreach (var shopTransactionId in dateAndShopTransactionIds.ShopTransactionIds ?? Enumerable.Empty<string>())
                     {
                         Console.WriteLine($"Id: {shopTransactionId}");
                     }
                     Console.WriteLine();
                 }
             }
+
+            Console.ReadKey();
         }
     }
 }

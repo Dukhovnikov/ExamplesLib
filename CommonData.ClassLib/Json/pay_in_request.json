@@ -1,0 +1,37 @@
+﻿{
+  "auth": {
+    "id": "login",
+    "auth_type": "PASSWORD",
+    "client_soft": "soft",
+    "key": "password",
+    "timestamp": "2016-01-02T12:34:56.123Z"
+  },
+  "pay_in": {
+    "uid": "uid123",
+    "comment": "комментарий",
+    "livetime": 100,
+    "from": {
+      "provider": 12345,
+      "account": "from_account",
+      "currency": 643,
+      "amount": "100.25"
+    },
+    "to": {
+      "provider": 123,
+      "account": "to_account",
+      "currency": 643,
+      "amount": "100.25"
+    },
+    "success_url": "http://example.com",
+    "fail_url": "http://example1.com",
+    "extras": {
+      "client_ip": "10.20.30.40",
+      "pay_ref_id": "12345",
+      "extra_name2": "extra_value2"
+    }
+  },
+  "client": {
+    "wal_id": "WL-9999323",
+    "email": "email@email.com"
+  }
+}
