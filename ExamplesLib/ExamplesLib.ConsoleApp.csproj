@@ -42,15 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DateAndStrings.cs" />
-    <Compile Include="DateAndStringsService.cs" />
+    <Compile Include="ComputeMD5.Tests\ComputeMD5Executor.cs" />
+    <Compile Include="DateAndStrings.Tests\DateAndStrings.cs" />
+    <Compile Include="DateAndStrings.Tests\DateAndStringsService.cs" />
     <Compile Include="EnumParse.Tests\ConsoleEnumTester.cs" />
     <Compile Include="EnumParse.Tests\EnumHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleData.cs" />
-    <Compile Include="SimpleDataService.cs" />
-    <Compile Include="TestGroupBy.cs" />
+    <Compile Include="DateAndStrings.Tests\SimpleData.cs" />
+    <Compile Include="DateAndStrings.Tests\SimpleDataService.cs" />
+    <Compile Include="DateAndStrings.Tests\TestGroupBy.cs" />
     <Compile Include="WebRequest.Tests\WebRequestSender.cs" />
   </ItemGroup>
   <ItemGroup>

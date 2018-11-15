@@ -44,8 +44,10 @@
   <ItemGroup>
     <Compile Include="Models\PayCheckRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\XmlWorker.cs" />
     <Compile Include="Settings\HttpSettings.cs" />
     <Compile Include="Settings\ISettings.cs" />
+    <Compile Include="Utils\CertUtils.cs" />
     <Compile Include="Utils\ColorWriter.cs" />
     <Compile Include="Utils\ConsoleCounter.cs" />
     <Compile Include="Utils\JsonUtils.cs" />
@@ -59,9 +61,7 @@
     <Content Include="Json\pay_in_request.json" />
     <Content Include="Json\pay_in_response.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.
