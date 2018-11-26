@@ -3,10 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:NeuronNetworks.WpfApp"
+        xmlns:local="clr-namespace:NeuronNetworks.WpfApp.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.Resources>
+        <local:NeuronNetworkViewModel x:Key="NeuronNetworkViewModel" />
+        <local:NumberToBrushConverter x:Key="NumberToBrushConverter"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource NeuronNetworkViewModel}">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                <GradientStop Color="#FFE6DFF8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
@@ -26,46 +36,34 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Row="0" Grid.Column="0"/>
-        <Button Grid.Row="0" Grid.Column="1"/>
-        <Button Grid.Row="0" Grid.Column="2" Background="DarkBlue"/>
-        <Button Grid.Row="0" Grid.Column="3"/>
-        <Button Grid.Row="0" Grid.Column="4"/>
+        <Button Grid.Row="0" Grid.Column="0" Background="{Binding ValueButton0, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="0" Grid.Column="1" Background="{Binding ValueButton1, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="0" Grid.Column="2" Background="{Binding ValueButton2, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="0" Grid.Column="3" Background="{Binding ValueButton3, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="0" Grid.Column="4" Background="{Binding ValueButton4, Converter={StaticResource NumberToBrushConverter}}"/>
 
-        <Button Grid.Row="1" Grid.Column="0"/>
-        <Button Grid.Row="1" Grid.Column="1" Background="DarkBlue"/>
-        <Button Grid.Row="1" Grid.Column="2"/>
-        <Button Grid.Row="1" Grid.Column="3" Background="DarkBlue"/>
-        <Button Grid.Row="1" Grid.Column="4"/>
+        <Button Grid.Row="1" Grid.Column="0" Background="{Binding ValueButton5, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="1" Grid.Column="1" Background="{Binding ValueButton6, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="1" Grid.Column="2" Background="{Binding ValueButton7, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="1" Grid.Column="3" Background="{Binding ValueButton8, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="1" Grid.Column="4" Background="{Binding ValueButton9, Converter={StaticResource NumberToBrushConverter}}"/>
 
-        <Button Grid.Row="2" Grid.Column="0"/>
-        <Button Grid.Row="2" Grid.Column="1" Background="DarkBlue"/>
-        <Button Grid.Row="2" Grid.Column="2"/>
-        <Button Grid.Row="2" Grid.Column="4"/>
-        <Button Grid.Row="2" Grid.Column="3" Background="DarkBlue"/>
+        <Button Grid.Row="2" Grid.Column="0" Background="{Binding ValueButton10, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="2" Grid.Column="1" Background="{Binding ValueButton11, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="2" Grid.Column="2" Background="{Binding ValueButton12, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="2" Grid.Column="3" Background="{Binding ValueButton13, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="2" Grid.Column="4" Background="{Binding ValueButton14, Converter={StaticResource NumberToBrushConverter}}"/>
 
-        <Button Grid.Row="3" Grid.Column="0"/>
-        <Button Grid.Row="3" Grid.Column="1" Background="DarkBlue"/>
-        <Button Grid.Row="3" Grid.Column="2"/>
-        <Button Grid.Row="3" Grid.Column="4"/>
-        <Button Grid.Row="3" Grid.Column="3" Background="DarkBlue"/>
+        <Button Grid.Row="3" Grid.Column="0" Background="{Binding ValueButton15, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="3" Grid.Column="1" Background="{Binding ValueButton16, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="3" Grid.Column="2" Background="{Binding ValueButton17, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="3" Grid.Column="3" Background="{Binding ValueButton18, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="3" Grid.Column="4" Background="{Binding ValueButton19, Converter={StaticResource NumberToBrushConverter}}"/>
 
-        <Button Grid.Row="4" Grid.Column="0"/>
-        <Button Grid.Row="4" Grid.Column="1" Background="DarkBlue"/>
-        <Button Grid.Row="4" Grid.Column="2"/>
-        <Button Grid.Row="4" Grid.Column="4"/>
-        <Button Grid.Row="4" Grid.Column="3" Background="DarkBlue"/>
-
-        <Button Grid.Row="5" Grid.Column="0"/>
-        <Button Grid.Row="5" Grid.Column="1" Background="DarkBlue"/>
-        <Button Grid.Row="5" Grid.Column="2"/>
-        <Button Grid.Row="5" Grid.Column="4"/>
-        <Button Grid.Row="5" Grid.Column="3" Background="DarkBlue"/>
-
-        <Button Grid.Row="6" Grid.Column="0"/>
-        <Button Grid.Row="6" Grid.Column="1"/>
-        <Button Grid.Row="6" Grid.Column="2" Background="DarkBlue"/>
-        <Button Grid.Row="6" Grid.Column="4"/>
-        <Button Grid.Row="6" Grid.Column="3"/>
+        <Button Grid.Row="4" Grid.Column="0" Background="{Binding ValueButton20, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="4" Grid.Column="1" Background="{Binding ValueButton21, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="4" Grid.Column="2" Background="{Binding ValueButton22, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="4" Grid.Column="3" Background="{Binding ValueButton23, Converter={StaticResource NumberToBrushConverter}}"/>
+        <Button Grid.Row="4" Grid.Column="4" Background="{Binding ValueButton24, Converter={StaticResource NumberToBrushConverter}}"/>
     </Grid>
 </Window>

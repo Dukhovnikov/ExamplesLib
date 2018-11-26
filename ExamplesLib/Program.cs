@@ -12,9 +12,8 @@ namespace ExamplesLib
     {
         static void Main(string[] args)
         {
-            WebRequestSender.SimpleSendWithUriBuilder();
-            //WebRequestSender.SimpleSend();
-
+            var array = HammingNetwork.Run();
+            Console.WriteLine(array[0]);
             Console.ReadKey();
         }
 

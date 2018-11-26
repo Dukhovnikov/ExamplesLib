@@ -2,6 +2,7 @@
 using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading.Tasks;
 
 namespace Server
 {
@@ -24,6 +25,11 @@ namespace Server
             {
                 
             }
+        }
+
+        public Task Run()
+        {
+            throw new NotImplementedException();
         }
     }
 }

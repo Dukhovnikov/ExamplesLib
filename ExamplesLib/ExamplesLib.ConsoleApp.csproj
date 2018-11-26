@@ -47,6 +47,7 @@
     <Compile Include="DateAndStrings.Tests\DateAndStringsService.cs" />
     <Compile Include="EnumParse.Tests\ConsoleEnumTester.cs" />
     <Compile Include="EnumParse.Tests\EnumHelper.cs" />
+    <Compile Include="HammingNetwork.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DateAndStrings.Tests\SimpleData.cs" />
@@ -56,6 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NeuronNetworks.WpfApp\NeuronNetworks.WpfApp.csproj">
+      <Project>{92875a7e-a45e-4a00-94a4-0e1a2140bb01}</Project>
+      <Name>NeuronNetworks.WpfApp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

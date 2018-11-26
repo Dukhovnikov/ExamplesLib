@@ -56,8 +56,6 @@ namespace Server
                 HttpListenerRequest request = context.Request;
                 HttpListenerResponse response = context.Response;
 
-                WebServer das = null;
-
                 counter.Show();
                 counter.Tick();
 
