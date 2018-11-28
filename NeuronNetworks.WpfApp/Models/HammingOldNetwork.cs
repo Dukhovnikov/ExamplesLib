@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NeuronNetworks.WpfApp.Models
 {
-    public static class HammingNetwork
+    public static class HammingOldNetwork
     {
         public static double[,] ComputeMatrixOfLinks()
         {
