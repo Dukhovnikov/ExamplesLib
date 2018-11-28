@@ -9,8 +9,13 @@ namespace NeuronNetworks.WpfApp.Models
 {
     public class Neuron
     {
+        /// <summary>Веса</summary>
         public double[] Weights;
+
+        /// <summary>Аксон</summary>
         public double Y;
+
+        /// <summary>Синапс</summary>
         public double S;
     }
 
@@ -34,6 +39,7 @@ namespace NeuronNetworks.WpfApp.Models
             M = sampleVectors.Length;
 
             FirstLayer = new Neuron[M];
+            SecondLayer = new Neuron[M];
 
             WeightCoefficientMatrix = new Matrix(N, M);
 
@@ -41,11 +47,12 @@ namespace NeuronNetworks.WpfApp.Models
             {
                 for (int i = 0; i < N - 1; i++)
                 {
-                    WeightCoefficientMatrix[i, j] = sampleVectors[j][i];
+                    WeightCoefficientMatrix[i, j] = sampleVectors[j][i] / 2;
                 }
             }
         }
 
+        /// <summary>Расчёт состояний нейронов первого слоя</summary>
         public void FillFirstLayer(Vector x)
         {
             double t = N / 2;
@@ -55,7 +62,49 @@ namespace NeuronNetworks.WpfApp.Models
                 Neuron currentNeuron = FirstLayer[j];
 
                 double state = 0;
+
+                for (int i = 0; i < N; i++)
+                {
+                    state += currentNeuron.Weights[i] * x[i];
+                }
+
+                state += t;
+
+                currentNeuron.S = state;
+                currentNeuron.Y = state;
             }
+        }
+
+        /// <summary>Расчёт состояний нейронов второго слоя</summary>
+        public double[] CalculateSecondLayer()
+        {
+            double epsilon = 1 / M;
+            double eMax = 0.1;
+            double t = N / 2;
+
+            List<double> lastY = new List<double>();
+            for (int j = 0; j < M; j++)
+            {
+                Neuron currentNeuron = SecondLayer[j];
+                currentNeuron.S = FirstLayer[j].S;
+                currentNeuron.Y = FirstLayer[j].Y;
+
+                lastY.Add(FirstLayer[j].Y);
+            }
+
+            
+
+            return null;
+        }
+
+        public double CalculateSum(IList<double> Y, double epsilon, int j)
+        {
+            double sum = 0;
+            for (int k = 0; k < M; k++)
+            {
+
+            }
+            return null;
         }
     }
 
