@@ -71,7 +71,7 @@ namespace ExamplesLib
         {
             var m = 25;
             var k1 = 0.1;
-            var Un = 10;
+            var Un = 30;
             var eps = 0.25;
 
             var A = letterA;

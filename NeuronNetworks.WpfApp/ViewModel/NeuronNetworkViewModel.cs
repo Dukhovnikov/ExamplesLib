@@ -15,7 +15,7 @@ namespace NeuronNetworks.WpfApp.ViewModel
     {
         public NeuronNetworkViewModel()
         {
-            SetDrawingField(letterB);
+            SetDrawingField(letterA);
         }
 
         #region Значения каждой кнопки
@@ -46,11 +46,13 @@ namespace NeuronNetworks.WpfApp.ViewModel
         public int ValueButton24 { get; set; }
         #endregion
 
-        public Brush Testcolor { get; set; } = Brushes.BlueViolet;
+        //public Brush Testcolor { get; set; } = Brushes.BlueViolet;
 
         public int TestInteger1 { get; set; } = -1;
         public int TestInteger2 { get; set; } = 1;
 
+
+        #region Массивы с данными для букв
         public int[] letterA = new int[25]
         {
                 -1, -1,  1, -1, -1,
@@ -61,13 +63,13 @@ namespace NeuronNetworks.WpfApp.ViewModel
         };
 
         int[] letterD = new int[25]
-{
+        {
                 -1,  1,  1,  1, -1,
                 -1,  1, -1,  1, -1,
                  1,  1,  1,  1,  1,
                  1, -1, -1, -1,  1,
                  1, -1, -1, -1,  1
-};
+        };
 
         int[] letterN = new int[25]
         {
@@ -86,6 +88,8 @@ namespace NeuronNetworks.WpfApp.ViewModel
                 -1, 1, -1,  1, -1,
                 -1, 1,  1,  1, -1
         };
+        #endregion
+
 
         private void SetDrawingField(int[] data)
         {

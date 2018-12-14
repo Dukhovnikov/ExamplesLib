@@ -10,6 +10,8 @@ namespace SimpleKohonen
     {
         static void Main(string[] args)
         {
+
+
         }
     }
 }

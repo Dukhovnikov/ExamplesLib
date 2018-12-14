@@ -45,6 +45,9 @@
     <Compile Include="Models\Matrix.cs" />
     <Compile Include="Models\PayCheckRequest.cs" />
     <Compile Include="Models\Vector.cs" />
+    <Compile Include="NeuronNetworks\HammingNetwork\Layer.cs" />
+    <Compile Include="NeuronNetworks\HammingNetwork\NeuralNetwork.cs" />
+    <Compile Include="NeuronNetworks\HammingNetwork\Neuron.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\XmlWorker.cs" />
     <Compile Include="Settings\HttpSettings.cs" />

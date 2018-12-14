@@ -8,9 +8,10 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>ExamplesLib</RootNamespace>
     <AssemblyName>ExamplesLib</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -59,6 +60,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonData.ClassLib\CommonData.ClassLib.csproj">
+      <Project>{21caaed6-4e50-4139-9fb8-1fc6b9c7bd14}</Project>
+      <Name>CommonData.ClassLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NeuronNetworks.WpfApp\NeuronNetworks.WpfApp.csproj">
       <Project>{92875a7e-a45e-4a00-94a4-0e1a2140bb01}</Project>
       <Name>NeuronNetworks.WpfApp</Name>

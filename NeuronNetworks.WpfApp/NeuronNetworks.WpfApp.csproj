@@ -61,6 +61,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="NeuralNet\CryptoRandom.cs" />
+    <Compile Include="NeuralNet\Dendrite.cs" />
+    <Compile Include="NeuralNet\Layer.cs" />
+    <Compile Include="NeuralNet\NetworkHelper.cs" />
+    <Compile Include="NeuralNet\NeuralNetwork.cs" />
+    <Compile Include="NeuralNet\Neuron.cs" />
     <Compile Include="ViewModel\NeuronNetworkViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

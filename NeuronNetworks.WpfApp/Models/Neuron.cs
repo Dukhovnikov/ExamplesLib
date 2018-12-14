@@ -104,7 +104,7 @@ namespace NeuronNetworks.WpfApp.Models
             {
 
             }
-            return null;
+            return 0;
         }
     }
 
