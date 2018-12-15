@@ -13,7 +13,7 @@ namespace ExamplesLib
     {
         static void Main(string[] args)
         {
-            NeuronNetworks_HammingNetwork_Test2();
+            NeuronNetworks_HammingNetwork_Test();
             Console.ReadKey();
         }
 
@@ -85,11 +85,11 @@ namespace ExamplesLib
 
             double[] letterForTest = new double[25]
             {
-                -1, 1,  1,  1, 1,
-                -1 ,1, -1, -1, -1,
-                -1, 1,  1,  1, -1,
-                -1, 1, -1,  1, -1,
-                -1, 1,  1,  1, -1
+                -1, 1, 1, 1, 1,
+                -1, 1, -1, 1, -1,
+                -1, 1,  1, 1, -1,
+                -1, 1, -1, 1, -1,
+                -1, 1, -1, 1, -1,
             };
 
             IList<double[]> standartData = new List<double[]>();

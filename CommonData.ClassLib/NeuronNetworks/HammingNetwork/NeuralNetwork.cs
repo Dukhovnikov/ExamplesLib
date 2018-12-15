@@ -35,11 +35,21 @@ namespace CommonData.ClassLib.NeuronNetworks.HammingNetwork
             if (!Layers.Any()) return false;
             if (Layers[0].Neurons.Count != letters.Count) return false;
 
-            Layers[0].Neurons = new List<Neuron>();
-
-            foreach (var letter in letters)
+            Layer firstLayer = Layers[0];
+            for (int i = 0; i < firstLayer.Neurons.Count; i++)
             {
-                LearnLetter(letter);
+                double[] letter = letters[i];
+                Neuron neuron = new Neuron();
+
+                for (int j = 0; j < letter.Length; j++)
+                {
+                    neuron.Weights.Add(letter[j] / 2);
+                    //neuron.Bias = (double) (letter.Length / 2);
+                    neuron.Bias = 4.5;
+                    neuron.ResetPower();
+                }
+
+                firstLayer.Neurons[i] = neuron;
             }
 
             return true;
@@ -57,12 +67,11 @@ namespace CommonData.ClassLib.NeuronNetworks.HammingNetwork
                 {
                     neuron.Weights.Add(symbol / 2);
                 }
-                //neuron.Bias = (double) (letter.Length / 2);
-                neuron.Bias = 4.5;
+                neuron.Bias = (double) (letter.Length / 2);
+                //neuron.Bias = 4.5;
                 neuron.ResetPower();
 
-                //firstLayer.Neurons[i] = neuron;
-                firstLayer.Neurons.Add(neuron);
+                firstLayer.Neurons[i] = neuron;
             }
         }
 
@@ -87,7 +96,7 @@ namespace CommonData.ClassLib.NeuronNetworks.HammingNetwork
             }
 
             //Рассчет подсети Maxnet 
-            IList<double> inputsANeurons = new List<double>(); 
+            IList<double> inputsANeurons = new List<double>();
             for (int i = 0; i < aNeurons.Count; i++)
             {
                 inputsANeurons.Add(aNeurons[i].Power);
