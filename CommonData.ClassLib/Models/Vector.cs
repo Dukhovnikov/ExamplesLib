@@ -35,7 +35,7 @@ namespace CommonData.ClassLib.Models
         /// <summary>
         /// Заполнение вектора путем передачи массива.
         /// </summary>
-        public Vector(params double[] vector)
+        public Vector(double[] vector)
         {
             this.vector = new double[vector.Length];
             this.vector = vector;
@@ -121,6 +121,32 @@ namespace CommonData.ClassLib.Models
             Vector v3 = new Vector(v1.Size);
             for (int i = 0; i < v3.Size; i++) v3[i] = v1[i] / C;
             return v3;
+        }
+
+        public static bool operator ==(Vector left, Vector right)
+        {
+            for (int i = 0; i < left.Size; i++)
+            {
+                if (left[i] != right[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool operator !=(Vector left, Vector right)
+        {
+            for (int i = 0; i < left.Size; i++)
+            {
+                if (left[i] != right[i])
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>

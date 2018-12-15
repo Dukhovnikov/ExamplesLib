@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonData.ClassLib.NeuronNetworks.HammingNetwork;
+using CommonData.ClassLib.NeuronNetworks.HopfieldNeuralNetwork;
+using CommonData.ClassLib.Models;
 
 namespace ExamplesLib
 {
@@ -13,8 +15,188 @@ namespace ExamplesLib
     {
         static void Main(string[] args)
         {
-            NeuronNetworks_HammingNetwork_Test();
+            HopfieldNeuralNetwork_Test3();
             Console.ReadKey();
+        }
+
+        private static void HopfieldNeuralNetwork_Test4()
+        {
+            double[] letter1 = new double[9] { -1, 1, -1, -1, 1, -1, -1, 1, -1 };
+            double[] letter2 = new double[9] { 1, 1, 1, 1, -1, 1, 1, -1, 1 };
+            double[] letter3 = new double[9] { 1, -1, 1, 1, 1, 1, 1, -1, 1 };
+            double[] letter4 = new double[9] { 1, 1, 1, 1, -1, -1, 1, -1, -1 };
+            double[] letter5 = new double[9] { -1, -1, -1, -1, 1, -1, -1, -1, -1 };
+
+            double[] letterForTest = new double[9] { -1, -1, 1, 1, 1, 1, 1, -1, 1 };
+
+
+            IList<double[]> standartData = new List<double[]>();
+            standartData.Add(letter1);
+            standartData.Add(letter2);
+            standartData.Add(letter3);
+            standartData.Add(letter4);
+            standartData.Add(letter5);
+
+            HopfieldNeuralNetwork hn = new HopfieldNeuralNetwork();
+            hn.Initialize();
+            hn.Train(standartData);
+            double[] answer = hn.Run(letterForTest);
+
+            Vector answerVector = new Vector(answer);
+            int simillarCount = -1;
+            for (int i = 0; i < standartData.Count; i++)
+            {
+                Vector vector = new Vector(standartData[i]);
+                Console.WriteLine($"Standart vector [{i}]: {vector}");
+
+                if (answerVector == vector)
+                {
+                    simillarCount = i;
+                }
+            }
+
+            Console.WriteLine($"\nCurrentt vector [{simillarCount}]: {new Vector(answer)}");
+        }
+
+        private static void HopfieldNeuralNetwork_Test3()
+        {
+            double[] letterA = new double[12]
+                        {
+                1, -1,  1,
+                1,  1, -1,
+                1,  1,  1,
+                1,  1, -1,
+                        };
+
+            double[] letterB = new double[12]
+            {
+                -1, 1,  1,
+                -1 ,1, -1,
+                -1, 1,  1, 
+                -1, 1, -1, 
+            };
+
+            double[] letterD = new double[12]
+            {
+                -1,  1,  1,
+                -1,  1, -1, 
+                 1,  1,  1, 
+                 1, -1, -1, 
+            };
+            double[] letterN = new double[12]
+            {
+                -1, -1, -1,
+                1, -1, -1,
+                -1, -1,  1,
+                -1, -1, -1,
+            };
+
+            double[] letterForTest = new double[12]
+            {
+                -1, -1, -1,
+                1, -1, -1,
+                -1, -1,  1,
+                -1, -1, -1,
+            };
+
+            IList<double[]> standartData = new List<double[]>();
+            standartData.Add(letterA);
+            standartData.Add(letterB);
+            standartData.Add(letterD);
+            standartData.Add(letterN);
+
+            HopfieldNeuralNetwork hn = new HopfieldNeuralNetwork();
+            hn.Initialize();
+            hn.Train(standartData);
+            double[] answer = hn.Run(letterForTest);
+
+            Vector answerVector = new Vector(answer);
+            int simillarCount = -1;
+            for (int i = 0; i < standartData.Count; i++)
+            {
+                Vector vector = new Vector(standartData[i]);
+                Console.WriteLine($"Standart vector [{i}]: {vector}");
+
+                if (answerVector == vector)
+                {
+                    simillarCount = i;
+                }
+            }
+
+            Console.WriteLine($"\nCurrentt vector [{simillarCount}]: {new Vector(answer)}");
+        }
+
+        private static void HopfieldNeuralNetwork_Test2()
+        {
+            double[] letter1 = new double[9] { -1, 1, -1, -1, 1, -1, -1, 1, -1 };
+            double[] letter2 = new double[9] { 1, 1, 1, 1, -1, 1, 1, -1, 1 };
+            double[] letter3 = new double[9] { 1, -1, 1, 1, 1, 1, 1, -1, 1 };
+            double[] letter4 = new double[9] { 1, 1, 1, 1, -1, -1, 1, -1, -1 };
+            double[] letter5 = new double[9] { -1, -1, -1, -1, 1, -1, -1, -1, -1 };
+
+            double[] letterForTest = new double[9] { -1, -1, 1, 1, 1, 1, 1, -1, 1 };
+
+
+            IList<double[]> standartData = new List<double[]>();
+            standartData.Add(letter1);
+            standartData.Add(letter2);
+            standartData.Add(letter3);
+            standartData.Add(letter4);
+            standartData.Add(letter5);
+
+            HopfieldNeuralNetwork hn = new HopfieldNeuralNetwork();
+            hn.Initialize();
+            hn.Train(standartData);
+            double[] answer = hn.Run(letterForTest);
+
+            Vector answerVector = new Vector(answer);
+            int simillarCount = -1;
+            for (int i = 0; i < standartData.Count; i++)
+            {
+                Vector vector = new Vector(standartData[i]);
+                Console.WriteLine($"Standart vector [{i}]: {vector}");
+
+                if (answerVector == vector)
+                {
+                    simillarCount = i;
+                }
+            }
+
+            Console.WriteLine($"\nCurrentt vector [{simillarCount}]: {new Vector(answer)}");
+        }
+
+        private static void HopfieldNeuralNetwork_Test()
+        {
+            double[] letter1 = new double[4] { -1, 1, -1, 1 };
+            double[] letter2 = new double[4] { 1, -1, 1, 1 };
+            double[] letter3 = new double[4] { 1, 1, -1, -1 };
+
+            double[] letterForTest = new double[4] { 1, -1, 1, -1 };
+
+            IList<double[]> standartData = new List<double[]>();
+            standartData.Add(letter1);
+            standartData.Add(letter2);
+            standartData.Add(letter3);
+
+            HopfieldNeuralNetwork hn = new HopfieldNeuralNetwork();
+            hn.Initialize();
+            hn.Train(standartData);
+            double[] answer = hn.Run(letterForTest);
+
+            Vector answerVector = new Vector(answer);
+            int simillarCount = -1;
+            for (int i = 0; i < standartData.Count; i++)
+            {
+                Vector vector = new Vector(standartData[i]);
+                Console.WriteLine($"Standart vector [{i}]: {vector}");
+
+                if (answerVector == vector)
+                {
+                    simillarCount = i;
+                }
+            }
+
+            Console.WriteLine($"\nCurrentt vector [{simillarCount}]: {new Vector(answer)}");
         }
 
         private static void NeuronNetworks_HammingNetwork_Test2()
