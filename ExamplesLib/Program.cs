@@ -15,8 +15,80 @@ namespace ExamplesLib
     {
         static void Main(string[] args)
         {
-            HopfieldNeuralNetwork_Test3();
+            //HopfieldNeuralNetwork_Test3();
+            KohonenNerualNetwork_TestLetter_A();
+            KohonenNerualNetwork_TestLetter_B();
+            KohonenNerualNetwork_TestLetter_D();
+            KohonenNerualNetwork_TestLetter_N();
             Console.ReadKey();
+        }
+
+        private static void KohonenNerualNetwork_TestLetter_A()
+        {
+            double[] letterForTestA = new double[25]
+            {
+                1, -1,  1, 1, 1,
+                -1,  1, -1,  1, -1,
+                -1,  1,  1,  1, -1,
+                -1,  1, -1,  1, -1,
+                -1,  1, -1,  -1, -1
+            };
+
+            var neurons = Kohonen.NeuronsLearning.Learning();
+            var output = Kohonen.RecognitionSymbol.Calculate(neurons, letterForTestA.ToList());
+
+            Console.WriteLine(output);
+        }
+
+        private static void KohonenNerualNetwork_TestLetter_B()
+        {
+            double[] letterForTestB = new double[25]
+            {
+                -1, 1,  1,  1, -1,
+                -1 ,1, -1, -1, -1,
+                -1, 1,  1,  1, 1,
+                -1, 1, -1,  1, -1,
+                -1, 1,  1,  1, 1
+            };
+
+            var neurons = Kohonen.NeuronsLearning.Learning();
+            var output = Kohonen.RecognitionSymbol.Calculate(neurons, letterForTestB.ToList());
+
+            Console.WriteLine(output);
+        }
+
+        private static void KohonenNerualNetwork_TestLetter_D()
+        {
+            double[] letterForTestD = new double[25]
+        {
+                -1,  1,  1,  1, -1,
+                -1,  1, -1,  1, 1,
+                 1,  1,  -1,  1,  1,
+                 1, -1, -1, -1,  1,
+                 1, -1, -1, -1,  1
+        };
+
+            var neurons = Kohonen.NeuronsLearning.Learning();
+            var output = Kohonen.RecognitionSymbol.Calculate(neurons, letterForTestD.ToList());
+
+            Console.WriteLine(output);
+        }
+
+        private static void KohonenNerualNetwork_TestLetter_N()
+        {
+            double[] letterForTestN = new double[25]
+        {
+                -1, 1, -1, 1, -1,
+                -1, 1, -1, 1, -1,
+                1, 1,  1, 1, 1,
+                -1, 1, -1, 1, -1,
+                -1, 1, -1, 1, -1,
+        };
+
+            var neurons = Kohonen.NeuronsLearning.Learning();
+            var output = Kohonen.RecognitionSymbol.Calculate(neurons, letterForTestN.ToList());
+
+            Console.WriteLine(output);
         }
 
         private static void HopfieldNeuralNetwork_Test4()
@@ -72,16 +144,16 @@ namespace ExamplesLib
             {
                 -1, 1,  1,
                 -1 ,1, -1,
-                -1, 1,  1, 
-                -1, 1, -1, 
+                -1, 1,  1,
+                -1, 1, -1,
             };
 
             double[] letterD = new double[12]
             {
                 -1,  1,  1,
-                -1,  1, -1, 
-                 1,  1,  1, 
-                 1, -1, -1, 
+                -1,  1, -1,
+                 1,  1,  1,
+                 1, -1, -1,
             };
             double[] letterN = new double[12]
             {
@@ -93,10 +165,10 @@ namespace ExamplesLib
 
             double[] letterForTest = new double[12]
             {
-                -1, -1, -1,
-                1, -1, -1,
+                                -1, -1, -1,
+                -1, -1, 1,
                 -1, -1,  1,
-                -1, -1, -1,
+                -1, -1, 1,
             };
 
             IList<double[]> standartData = new List<double[]>();

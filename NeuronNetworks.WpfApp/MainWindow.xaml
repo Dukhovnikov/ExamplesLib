@@ -26,9 +26,13 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
             <ColumnDefinition Width="40"></ColumnDefinition>
             <ColumnDefinition Width="40"></ColumnDefinition>
             <ColumnDefinition Width="40"></ColumnDefinition>
@@ -45,6 +49,9 @@
 
         <TextBlock Grid.Row="0" Grid.ColumnSpan="5" Text="Тестовый образец" FontSize="20" FontStyle="Italic" HorizontalAlignment="Center"/>
         <TextBlock Grid.Row="0" Grid.ColumnSpan="5" Grid.Column="6" Text="Эталонный образец" FontSize="20" FontStyle="Italic" HorizontalAlignment="Center"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="14" Text="Обучающая выборка" FontSize="20" FontStyle="Italic" HorizontalAlignment="Center"/>
+        <ListBox Grid.Row="1" Grid.Column="14" Grid.RowSpan="5" FontSize="20" FontStyle="Italic" HorizontalAlignment="Center" Width="232"/>
 
         <Button Grid.Row="1" Grid.Column="0" Background="{Binding ValueButton0, Converter={StaticResource NumberToBrushConverter}}"/>
         <Button Grid.Row="1" Grid.Column="1" Background="{Binding ValueButton1, Converter={StaticResource NumberToBrushConverter}}"/>
@@ -107,8 +114,8 @@
         <Button Grid.Row="5" Grid.Column="8"  Background="{Binding ValueButtonOrigin22, Converter={StaticResource NumberToBrushConverter}}"/>
         <Button Grid.Row="5" Grid.Column="9"  Background="{Binding ValueButtonOrigin23, Converter={StaticResource NumberToBrushConverter}}"/>
         <Button Grid.Row="5" Grid.Column="10" Background="{Binding ValueButtonOrigin24, Converter={StaticResource NumberToBrushConverter}}"/>
-        
-        
+
+
         <Button Command="{Binding CheckCommand}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="5" Content="Вычислить" FontSize="20"/>
     </Grid>
 </Window>

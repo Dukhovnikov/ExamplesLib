@@ -101,7 +101,7 @@ namespace CommonData.ClassLib.NeuronNetworks.HammingNetwork
             {
                 inputsANeurons.Add(aNeurons[i].Power);
             }
-            IList<double> outputsANeurons = getANeuronsOutputSignals(inputsANeurons);
+            IList<double> outputsANeurons = calculateOutputSignals(inputsANeurons);
 
             return outputsANeurons.ToArray();
         }
@@ -132,7 +132,7 @@ namespace CommonData.ClassLib.NeuronNetworks.HammingNetwork
             }
         }
 
-        private IList<double> getANeuronsOutputSignals(IList<double> Zneurons)
+        private IList<double> calculateOutputSignals(IList<double> Zneurons)
         {
             List<double> Aneurons = new List<double>();
             double g = 0;

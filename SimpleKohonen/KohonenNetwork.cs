@@ -11,7 +11,12 @@ namespace SimpleKohonen
         private readonly Input[] inputs;
         private readonly Neuron[] neurons;
 
-        public void Study(int[] input, int correctAnswer)
+        public KohonenNetwork()
+        {
+
+        }
+
+        public void Study(double[] input, int correctAnswer)
         {
             Neuron neuron = neurons[correctAnswer];
 
@@ -25,7 +30,7 @@ namespace SimpleKohonen
         /// <summary>
         /// Пропустить вектор через нейронную сеть 
         /// </summary>
-        public int Handle(int[] input)
+        public int Handle(double[] input)
         {
             for (int i = 0; i < inputs.Length; i++)
             {

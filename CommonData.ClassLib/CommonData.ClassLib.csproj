@@ -49,6 +49,10 @@
     <Compile Include="NeuronNetworks\HammingNetwork\NeuralNetwork.cs" />
     <Compile Include="NeuronNetworks\HammingNetwork\Neuron.cs" />
     <Compile Include="NeuronNetworks\HopfieldNeuralNetwork\HopfieldNeuralNetwork.cs" />
+    <Compile Include="NeuronNetworks\KohonenNerualNetwork\Neuron.cs" />
+    <Compile Include="NeuronNetworks\KohonenNerualNetwork\NeuronsLearning.cs" />
+    <Compile Include="NeuronNetworks\KohonenNerualNetwork\RecognitionSymbol.cs" />
+    <Compile Include="NeuronNetworks\KohonenNerualNetwork\Symbols.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\XmlWorker.cs" />
     <Compile Include="Settings\HttpSettings.cs" />

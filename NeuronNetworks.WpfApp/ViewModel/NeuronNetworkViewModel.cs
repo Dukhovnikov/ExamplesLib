@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
+using CommonData.ClassLib.NeuronNetworks.HammingNetwork;
 using Prism.Commands;
 using PropertyChanged;
 
@@ -17,73 +18,125 @@ namespace NeuronNetworks.WpfApp.ViewModel
     {
         public NeuronNetworkViewModel()
         {
-            SetDrawingField(letterA);
-            SetOriginDrawingField(letterD);
+            SetDrawingField(letterForTestD);
+            SetOriginDrawingField(errorLetter);
 
-            CheckCommand = new DelegateCommand(() => 
+            CheckCommand = new DelegateCommand(() => Compute());
+
+            LearningSet = new List<double[]>();
+            LearningSet.Add(letterA);
+            LearningSet.Add(letterB);
+            LearningSet.Add(letterD);
+            LearningSet.Add(letterN);
+            LearningSet.Add(letterO);
+
+
+            LearningSetDictionary = new Dictionary<string, double[]>()
             {
-                int[] data = GetDrawingFieldAsMass();
-                SetOriginDrawingField(data);
-            });
+                {"A", letterA },
+                {"Б", letterB },
+                {"Д", letterD },
+                {"Н", letterN },
+                {"O", letterO },
+            };
+
+            LearningSetDictionaryInt = new Dictionary<int, double[]>()
+            {
+                {0, letterA },
+                {1, letterB },
+                {2, letterD },
+                {3, letterN },
+                {4, letterO },
+            };
+
+            //InverseColor = new DelegateCommand(() => )
+        }
+
+        public void Compute()
+        {
+            var input = GetDrawingFieldAsMass();
+            NeuralNetwork hammingnetwork = new NeuralNetwork();
+            hammingnetwork.Initialize(5);
+            hammingnetwork.Train(LearningSet);
+            var output = hammingnetwork.Run(input);
+            var maxindex = IndexOfMaxElement(output);
+
+            SetOriginDrawingField(LearningSetDictionaryInt[maxindex]);
+        }
+
+        private int IndexOfMaxElement(double[] mass)
+        {
+            double max = mass[0];
+            int index = 0;
+            for (int i = 0; i < mass.Length; i++)
+            {
+                if (mass[i] > max)
+                {
+                    max = mass[i];
+                    index = i;
+                }
+            }
+
+            return index;
         }
 
         #region Значения каждой кнопки
-        public int ValueButton0 { get; set; }
-        public int ValueButton1 { get; set; }
-        public int ValueButton2 { get; set; }
-        public int ValueButton3 { get; set; }
-        public int ValueButton4 { get; set; }
-        public int ValueButton5 { get; set; }
-        public int ValueButton6 { get; set; }
-        public int ValueButton7 { get; set; }
-        public int ValueButton8 { get; set; }
-        public int ValueButton9 { get; set; }
-        public int ValueButton10 { get; set; }
-        public int ValueButton11 { get; set; }
-        public int ValueButton12 { get; set; }
-        public int ValueButton13 { get; set; }
-        public int ValueButton14 { get; set; }
-        public int ValueButton15 { get; set; }
-        public int ValueButton16 { get; set; }
-        public int ValueButton17 { get; set; }
-        public int ValueButton18 { get; set; }
-        public int ValueButton19 { get; set; }
-        public int ValueButton20 { get; set; }
-        public int ValueButton21 { get; set; }
-        public int ValueButton22 { get; set; }
-        public int ValueButton23 { get; set; }
-        public int ValueButton24 { get; set; }
+        public double ValueButton0 { get; set; }
+        public double ValueButton1 { get; set; }
+        public double ValueButton2 { get; set; }
+        public double ValueButton3 { get; set; }
+        public double ValueButton4 { get; set; }
+        public double ValueButton5 { get; set; }
+        public double ValueButton6 { get; set; }
+        public double ValueButton7 { get; set; }
+        public double ValueButton8 { get; set; }
+        public double ValueButton9 { get; set; }
+        public double ValueButton10 { get; set; }
+        public double ValueButton11 { get; set; }
+        public double ValueButton12 { get; set; }
+        public double ValueButton13 { get; set; }
+        public double ValueButton14 { get; set; }
+        public double ValueButton15 { get; set; }
+        public double ValueButton16 { get; set; }
+        public double ValueButton17 { get; set; }
+        public double ValueButton18 { get; set; }
+        public double ValueButton19 { get; set; }
+        public double ValueButton20 { get; set; }
+        public double ValueButton21 { get; set; }
+        public double ValueButton22 { get; set; }
+        public double ValueButton23 { get; set; }
+        public double ValueButton24 { get; set; }
 
 
-        public int ValueButtonOrigin0 { get; set; }
-        public int ValueButtonOrigin1 { get; set; }
-        public int ValueButtonOrigin2 { get; set; }
-        public int ValueButtonOrigin3 { get; set; }
-        public int ValueButtonOrigin4 { get; set; }
-        public int ValueButtonOrigin5 { get; set; }
-        public int ValueButtonOrigin6 { get; set; }
-        public int ValueButtonOrigin7 { get; set; }
-        public int ValueButtonOrigin8 { get; set; }
-        public int ValueButtonOrigin9 { get; set; }
-        public int ValueButtonOrigin10 { get; set; }
-        public int ValueButtonOrigin11 { get; set; }
-        public int ValueButtonOrigin12 { get; set; }
-        public int ValueButtonOrigin13 { get; set; }
-        public int ValueButtonOrigin14 { get; set; }
-        public int ValueButtonOrigin15 { get; set; }
-        public int ValueButtonOrigin16 { get; set; }
-        public int ValueButtonOrigin17 { get; set; }
-        public int ValueButtonOrigin18 { get; set; }
-        public int ValueButtonOrigin19 { get; set; }
-        public int ValueButtonOrigin20 { get; set; }
-        public int ValueButtonOrigin21 { get; set; }
-        public int ValueButtonOrigin22 { get; set; }
-        public int ValueButtonOrigin23 { get; set; }
-        public int ValueButtonOrigin24 { get; set; }
+        public double ValueButtonOrigin0 { get; set; }
+        public double ValueButtonOrigin1 { get; set; }
+        public double ValueButtonOrigin2 { get; set; }
+        public double ValueButtonOrigin3 { get; set; }
+        public double ValueButtonOrigin4 { get; set; }
+        public double ValueButtonOrigin5 { get; set; }
+        public double ValueButtonOrigin6 { get; set; }
+        public double ValueButtonOrigin7 { get; set; }
+        public double ValueButtonOrigin8 { get; set; }
+        public double ValueButtonOrigin9 { get; set; }
+        public double ValueButtonOrigin10 { get; set; }
+        public double ValueButtonOrigin11 { get; set; }
+        public double ValueButtonOrigin12 { get; set; }
+        public double ValueButtonOrigin13 { get; set; }
+        public double ValueButtonOrigin14 { get; set; }
+        public double ValueButtonOrigin15 { get; set; }
+        public double ValueButtonOrigin16 { get; set; }
+        public double ValueButtonOrigin17 { get; set; }
+        public double ValueButtonOrigin18 { get; set; }
+        public double ValueButtonOrigin19 { get; set; }
+        public double ValueButtonOrigin20 { get; set; }
+        public double ValueButtonOrigin21 { get; set; }
+        public double ValueButtonOrigin22 { get; set; }
+        public double ValueButtonOrigin23 { get; set; }
+        public double ValueButtonOrigin24 { get; set; }
         #endregion
 
         #region Массивы с данными для букв
-        public int[] letterA = new int[25]
+        public double[] letterA = new double[25]
         {
                 -1, -1,  1, -1, -1,
                 -1,  1, -1,  1, -1,
@@ -92,7 +145,16 @@ namespace NeuronNetworks.WpfApp.ViewModel
                 -1,  1, -1,  1, -1
         };
 
-        int[] letterD = new int[25]
+        double[] letterB = new double[25]
+        {
+                -1, 1,  1,  1, -1,
+                -1 ,1, -1, -1, -1,
+                -1, 1,  1,  1, -1,
+                -1, 1, -1,  1, -1,
+                -1, 1,  1,  1, -1
+        };
+
+        double[] letterD = new double[25]
         {
                 -1,  1,  1,  1, -1,
                 -1,  1, -1,  1, -1,
@@ -101,7 +163,7 @@ namespace NeuronNetworks.WpfApp.ViewModel
                  1, -1, -1, -1,  1
         };
 
-        int[] letterN = new int[25]
+        double[] letterN = new double[25]
         {
                 -1, 1, -1, 1, -1,
                 -1, 1, -1, 1, -1,
@@ -110,22 +172,83 @@ namespace NeuronNetworks.WpfApp.ViewModel
                 -1, 1, -1, 1, -1,
         };
 
-        int[] letterB = new int[25]
+        double[] letterO = new double[25]
+        {
+                -1, 1, 1, 1, -1,
+                -1, 1, -1, 1, -1,
+                -1, 1,  -1, 1, -1,
+                -1, 1, -1, 1, -1,
+                -1, 1, 1, 1, -1,
+        };
+
+        public double[] letterForTestA = new double[25]
+        {
+                1, -1,  1, -1, 1,
+                -1,  1, -1,  1, -1,
+                -1,  1,  1,  1, -1,
+                -1,  1, -1,  1, -1,
+                -1,  1, -1,  -1, -1
+        };
+
+        double[] letterForTestB = new double[25]
         {
                 -1, 1,  1,  1, -1,
                 -1 ,1, -1, -1, -1,
-                -1, 1,  1,  1, -1,
+                -1, 1,  -1,  1, 1,
                 -1, 1, -1,  1, -1,
-                -1, 1,  1,  1, -1
+                -1, 1,  1,  1, 1
+        };
+
+        double[] letterForTestD = new double[25]
+        {
+                -1,  1,  1,  1, -1,
+                -1,  1, -1,  1, 1,
+                 1,  1,  -1,  1,  1,
+                 1, -1, -1, -1,  1,
+                 1, -1, -1, -1,  1
+        };
+
+        double[] letterForTestN = new double[25]
+        {
+                -1, 1, -1, 1, -1,
+                -1, 1, -1, 1, -1,
+                1, 1,  1, 1, 1,
+                -1, 1, -1, 1, -1,
+                -1, 1, -1, 1, -1,
+        };
+
+        double[] letterForTestO = new double[25]
+        {
+                -1, 1, 1, 1, -1,
+                -1, 1, -1, 1, -1,
+                -1, 1,  1, 1, -1,
+                -1, 1, -1, 1, -1,
+                -1, 1, 1, 1, -1,
+        };
+
+        double[] errorLetter = new double[25]
+        {
+                -1, -1, -1, -1, -1,
+                -1, -1, -1, -1, -1,
+                -1, -1,  -1, -1, -1,
+                -1, -1, -1, -1, -1,
+                -1, -1, -1, -1, -1,
         };
         #endregion
 
+        public IList<double[]> LearningSet = new List<double[]>();
+
+        public Dictionary<string, double[]> LearningSetDictionary { get; set; }
+        public Dictionary<int, double[]> LearningSetDictionaryInt { get; set; }
+
+
 
         public ICommand CheckCommand { get; set; }
+        public ICommand InverseColor { get; set; }
 
-        private int[] GetDrawingFieldAsMass()
+        private double[] GetDrawingFieldAsMass()
         {
-            int[] data = new int[25]
+            double[] data = new double[25]
             {
                 ValueButton0,
                 ValueButton1,
@@ -159,7 +282,7 @@ namespace NeuronNetworks.WpfApp.ViewModel
 
         private void GetOriginDrawingFieldAsMass()
         {
-            int[] data = new int[25]
+            double[] data = new double[25]
             {
                 ValueButtonOrigin0,
                 ValueButtonOrigin1,
@@ -189,7 +312,7 @@ namespace NeuronNetworks.WpfApp.ViewModel
             };
         }
 
-        private void SetDrawingField(int[] data)
+        private void SetDrawingField(double[] data)
         {
             if (data.Length != 25) return;
 
@@ -220,7 +343,7 @@ namespace NeuronNetworks.WpfApp.ViewModel
             ValueButton24 = data[24];
         }
 
-        private void SetOriginDrawingField(int[] data)
+        private void SetOriginDrawingField(double[] data)
         {
             if (data.Length != 25) return;
 
@@ -256,7 +379,7 @@ namespace NeuronNetworks.WpfApp.ViewModel
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (int)value == 1 ? Brushes.LightBlue : Brushes.WhiteSmoke;
+            return (double)value == 1 ? Brushes.LightBlue : Brushes.WhiteSmoke;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
